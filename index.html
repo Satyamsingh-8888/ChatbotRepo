@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare Portal</title>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="top-bar">
+    <div class="location">Healthcare Chatbot</div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for Medicine">
+      <button>Search</button>
+    </div>
+
+    <div class="right-icons">
+      <div id="bookAppointment">📅 Book Appointment</div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('chatbot')">Chatbot</a>
+  </div>
+
+  <!-- Auth Page -->
+  <!-- <div id="authPage">
+    <h1>Welcome to HealthCare Portal</h1>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="switchTab('login')">Login</button>
+      <button id="registerTab" onclick="switchTab('register')">Register</button>
+    </div> -->
+
+
+    <!-- Auth Page with Background Video -->
+<div id="authPage">
+  <!-- Background video -->
+  <!-- <video autoplay muted loop id="bgVideo">
+    <source src="your-video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video> -->
+
+  <!-- Overlay content -->
+  <div class="auth-content">
+    <h1>Welcome to HealthCare Portal</h1>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="switchTab('login')">Login</button>
+      <button id="registerTab" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- Login -->
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Enter your name" required>
+      <input type="password" id="loginPassword" placeholder="Enter password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Register -->
+    <form id="registerForm" style="display:none;">
+      <input type="text" id="regUsername" placeholder="Choose username" required>
+      <input type="password" id="regPassword" placeholder="Choose password" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+
+    <!-- Login -->
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Enter your name" required>
+      <input type="password" id="loginPassword" placeholder="Enter password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Register -->
+    <form id="registerForm" style="display:none;">
+      <input type="text" id="regUsername" placeholder="Choose username" required>
+      <input type="password" id="regPassword" placeholder="Choose password" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Sections after login -->
+  <div id="home" class="section" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80');">
+    <h1>Welcome to Healthcare Portal</h1>
+    <p>Your trusted platform for health and wellness.</p>
+  </div>
+
+  <div id="about" class="section" style="background-image: url('about.jpg');">
+    <h1>About Us</h1>
+    <p>We provide trusted medical guidance and AI-powered chatbot support.</p>
+  </div>
+
+  <div id="contact" class="section" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80');">
+    <h1>Contact Us</h1>
+    <p>Email: support@healthcare.com | Phone: +91 99999 99999</p>
+  </div>
+
+  <div id="chatbot" class="section" style="background-image: url('https://images.unsplash.com/photo-1584982751601-97dccd9be0ad?auto=format&fit=crop&w=1600&q=80');">
+    <h1>Healthcare Chatbot</h1>
+    <div class="app">
+      <header>
+        <img src="https://img.icons8.com/color/96/doctor-male.png" alt="Doctor"/>
+        <div><h2>HealthBot</h2><p>Online</p></div>
+      </header>
+      <div class="chat-area" id="chat"></div>
+      <div class="controls">
+        <input id="userInput" type="text" placeholder="Ask about health..."/>
+        <button id="sendBtn">➤</button>
+        <button id="voiceBtn" title="Voice input">🎤</button>
+        <label for="imageUpload" title="Upload image">📷</label>
+        <input type="file" id="imageUpload" accept="image/*"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Appointments Section -->
+<div id="appointments" class="section">
+  <h1>My Appointments</h1>
+  <ul id="appointmentsList"></ul>
+</div>
+
+
+ 
+
+
+  <!-- Appointment Modal -->
+<dialog id="apptDialog">
+  <form method="dialog" class="appt-form">
+    <h3>Book Appointment</h3>
+
+    <!-- Appointment Type -->
+    <label for="appointmentType">Appointment Type:</label>
+    <select id="appointmentType" required>
+      <option value="">-- Select Type --</option>
+      <option value="General Checkup">General Checkup</option>
+      <option value="Dentist">Dentist</option>
+      <option value="Cardiologist">Cardiologist</option>
+      <option value="Dermatologist">Dermatologist</option>
+      <option value="Eye Specialist">Eye Specialist</option>
+      <option value="Orthopedic">Orthopedic</option>
+      <option value="Pediatrician">Pediatrician</option>
+    </select>
+
+    <!-- Appointment Date -->
+    <label for="appointmentDate">Choose a date:</label>
+    <input type="date" id="appointmentDate" required>
+
+    <!-- Appointment Time -->
+    <label for="appointmentTime">Choose a time (optional):</label>
+    <input type="time" id="appointmentTime">
+
+    <!-- Appointment Name -->
+<label for="appointmentName">Patient Name:</label>
+<input type="text" id="appointmentName" placeholder="Enter your name" required>
+
+<!-- Appointment Contact -->
+<label for="appointmentContact">Contact Number:</label>
+<input type="tel" id="appointmentContact" placeholder="Enter contact number" required>
+
+
+    <!-- Actions -->
+    <div class="actions">
+      <button id="cancelAppt" value="cancel" type="button">Cancel</button>
+      <button id="confirmAppt" value="default" type="button">Confirm</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="bottom-nav">
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('about')">About</a>
+  <a onclick="showSection('contact')">Contact</a>
+  <a onclick="showSection('chatbot')">Chatbot</a>
+  <a onclick="showSection('appointments')">Appointments</a>
+</div>
+
+
+
+
+
+  <script src="index.js"></script>
+</body>
+</html>
