@@ -45,36 +45,33 @@
 
     <!-- Auth Page with Background Video -->
 <!-- Auth Page with Background Image -->
-<div id="authPage" style="background-image: url('hospital.jpg'); background-size: cover; background-position: center; min-height: 100vh;">
-  <div class="auth-content">
-    <h1>Welcome to HealthCare Portal</h1>
+<div id="authPage">
+  <div class="auth-box">
+    <h1>HealthBot</h1>
+    <p class="tagline">AI-driven public health chatbot for disease awareness</p>
 
-    <div class="tabs">
+    <div class="tab-buttons">
       <button id="loginTab" class="active" onclick="switchTab('login')">Login</button>
       <button id="registerTab" onclick="switchTab('register')">Register</button>
     </div>
 
-    <!-- Login -->
-    <form id="loginForm">
-      <input type="text" id="loginUsername" placeholder="Enter your name" required>
-      <input type="password" id="loginPassword" placeholder="Enter password" required>
-      <button type="submit">Login</button>
+    <!-- Login Form -->
+    <form id="loginForm" class="active">
+      <input type="text" id="loginUsername" placeholder="Username" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit" class="submit-btn">Login</button>
     </form>
 
-    <!-- Register -->
-    <form id="registerForm" style="display:none;">
-      <input type="text" id="regUsername" placeholder="Choose username" required>
-      <input type="password" id="regPassword" placeholder="Choose password" required>
-      <button type="submit">Register</button>
+    <!-- Register Form -->
+    <form id="registerForm">
+      <input type="text" id="regUsername" placeholder="Username" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <button type="submit" class="submit-btn">Register</button>
     </form>
   </div>
 </div>
 
-
-    
-
-
-  </div> <!-- end of #authPage -->
+ <!-- end of #authPage -->
 
 
 <!-- Feature Page 4 (Home Section) -->
@@ -123,9 +120,17 @@
 </div>
 
 <div id="about" class="section" style="background-image: url('about.jpg');">
-    <h1>About Us</h1>
-    <p>We provide trusted medical guidance and AI-powered chatbot support.</p>
-  </div>
+  <h1>About Us</h1>
+  <p>
+    Welcome to <strong>HealthBot</strong>, an AI-driven public health chatbot designed to raise awareness about diseases and promote healthier lifestyles.  
+    Using advanced artificial intelligence, our chatbot provides reliable information, guidance on symptoms, preventive measures, and general health tips.  
+    Our goal is to empower individuals with accurate health knowledge and encourage timely medical consultation, making healthcare information accessible to everyone, anytime, anywhere.
+  </p>
+  <p>
+    HealthBot is ideal for educational purposes, community health initiatives, and supporting individuals in understanding and managing their well-being effectively.
+  </p>
+</div>
+
  
 
 

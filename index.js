@@ -1,3 +1,4 @@
+
 /* ========== Helpers ========== */
 function todayISO() {
   const d = new Date();
@@ -14,7 +15,7 @@ function switchTab(tab) {
   document.getElementById("loginTab").classList.toggle("active", tab === "login");
   document.getElementById("registerTab").classList.toggle("active", tab === "register");
 }
-window.switchTab = switchTab; // allow inline onclick
+window.switchTab = switchTab;
 
 /* ========== Register & Login (localStorage demo) ========== */
 document.getElementById("registerForm").addEventListener("submit", (e) => {
@@ -59,27 +60,45 @@ const chat = document.getElementById("chat");
 const input = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 
+/* ========== Gemini API Call ========== */
+const GEMINI_API_KEY = "AIzaSyAYBdU8EhCeRGPXlYrznGrO04IrjQXLuvo"; // 🔑 Replace with your Gemini API key
+const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+
+async function botReply(userText) {
+  try {
+    const res = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: userText }]
+          }
+        ]
+      })
+    });
+
+    const data = await res.json();
+    console.log("Gemini response:", data);
+
+    return (
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "❌ No response from Gemini."
+    );
+  } catch (err) {
+    console.error("Gemini API error:", err);
+    return "⚠ Error connecting to Gemini API.";
+  }
+}
+
 function appendMessage(text, who = "bot") {
   const bubble = document.createElement("div");
   bubble.className = "bubble " + (who === "me" ? "from-me" : "from-bot");
-  bubble.innerHTML = text;
+  bubble.textContent = text; // safer than innerHTML for text
   chat.appendChild(bubble);
   chat.scrollTop = chat.scrollHeight;
 }
 
-async function botReply(userText) {
-  try {
-    const res = await fetch("http://localhost:3000/ask", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: userText }),
-    });
-    const data = await res.json();
-    return data.answer || "❌ No answer received.";
-  } catch (err) {
-    return "⚠ Error connecting to AI server.";
-  }
-}
 
 async function sendMessage(userText) {
   if (!userText.trim()) return;
@@ -206,3 +225,4 @@ window.addEventListener("load", () => {
   appendMessage("👋 Welcome! Please login or register first.", "bot");
   loadAppointments();
 });
+
