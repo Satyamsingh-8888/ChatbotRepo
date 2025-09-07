@@ -9,6 +9,9 @@
 <body>
 
   <!-- Navbar -->
+
+
+  
   <div class="top-bar">
     <div class="location">Healthcare Chatbot</div>
 
@@ -41,14 +44,8 @@
 
 
     <!-- Auth Page with Background Video -->
-<div id="authPage">
-  <!-- Background video -->
-  <!-- <video autoplay muted loop id="bgVideo">
-    <source src="your-video.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video> -->
-
-  <!-- Overlay content -->
+<!-- Auth Page with Background Image -->
+<div id="authPage" style="background-image: url('hospital.jpg'); background-size: cover; background-position: center; min-height: 100vh;">
   <div class="auth-content">
     <h1>Welcome to HealthCare Portal</h1>
 
@@ -74,38 +71,34 @@
 </div>
 
 
-    <!-- Login -->
-    <form id="loginForm">
-      <input type="text" id="loginUsername" placeholder="Enter your name" required>
-      <input type="password" id="loginPassword" placeholder="Enter password" required>
-      <button type="submit">Login</button>
-    </form>
+    
 
-    <!-- Register -->
-    <form id="registerForm" style="display:none;">
-      <input type="text" id="regUsername" placeholder="Choose username" required>
-      <input type="password" id="regPassword" placeholder="Choose password" required>
-      <button type="submit">Register</button>
-    </form>
-  </div>
 
-  <!-- Sections after login -->
-  <div id="home" class="section" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80');">
-    <h1>Welcome to Healthcare Portal</h1>
-    <p>Your trusted platform for health and wellness.</p>
-  </div>
+  </div> <!-- end of #authPage -->
 
-  <div id="about" class="section" style="background-image: url('about.jpg');">
+
+<!-- Feature Page 4 (Home Section) -->
+<div id="home" class="section" style="background-image: url('Home.jpg');">
+  <h1>Welcome to Healthcare Portal</h1>
+  <p>Your trusted platform for health and wellness.</p>
+  <blockquote>“Healthy mind lives in a healthy body.”</blockquote>
+</div>
+
+
+
+  
+
+  <div id="about" class="section" style="background-image: url('About.jpg');">
     <h1>About Us</h1>
     <p>We provide trusted medical guidance and AI-powered chatbot support.</p>
   </div>
 
-  <div id="contact" class="section" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80');">
+  <div id="contact" class="section" style="background-image: url('contact.jpg')">
     <h1>Contact Us</h1>
     <p>Email: support@healthcare.com | Phone: +91 99999 99999</p>
   </div>
 
-  <div id="chatbot" class="section" style="background-image: url('https://images.unsplash.com/photo-1584982751601-97dccd9be0ad?auto=format&fit=crop&w=1600&q=80');">
+  <div id="chatbot" class="section" style="background-image: url('chatbot.jpg');">
     <h1>Healthcare Chatbot</h1>
     <div class="app">
       <header>
@@ -124,12 +117,15 @@
   </div>
 
   <!-- My Appointments Section -->
-<div id="appointments" class="section">
+<div id="appointments" class="section" style="background-image: url('appointment.jpg');">
   <h1>My Appointments</h1>
   <ul id="appointmentsList"></ul>
 </div>
 
-
+<div id="about" class="section" style="background-image: url('about.jpg');">
+    <h1>About Us</h1>
+    <p>We provide trusted medical guidance and AI-powered chatbot support.</p>
+  </div>
  
 
 
@@ -190,4 +186,4 @@
 
   <script src="index.js"></script>
 </body>
-</html>
+</html>  
