@@ -1,5 +1,3 @@
-
-/* ========== Helpers ========== */
 function todayISO() {
   const d = new Date();
   const y = d.getFullYear();
@@ -83,7 +81,7 @@ async function botReply(userText) {
 
     return (
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "❌ No response from Gemini."
+      "❌ No response."
     );
   } catch (err) {
     console.error("Gemini API error:", err);
